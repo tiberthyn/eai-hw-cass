@@ -1,9 +1,9 @@
 # Edge-AI and Hardware/Software Co-Design Intensive IEEE CASS UMSA Training Program 2026
 
-[![Platform](https://img.shields.io/badge/Platform-Microchip%20SmartFusion2%20M2S005-blue.svg)](https://www.microchip.com/)
-[![Development Board](https://img.shields.io/badge/Board-Polaris%20SoC%20FPGA-orange.svg)](#)
-[![Tools](https://img.shields.io/badge/Tools-Libero%20SoC%20v12+%20%7C%20SoftConsole-green.svg)](#)
-[![IEEE Chapter](https://img.shields.io/badge/IEEE-CASS%20UMSA%202026-blueviolet.svg)](#)
+[![IEEE CASS Chapter](https://img.shields.io/badge/IEEE-CASS%20UMSA%202026-blueviolet.svg)](https://edu.ieee.org/bo-umsa-cas/)
+[![Platform](https://img.shields.io/badge/Platform-Microchip%20SmartFusion2%20M2S005-blue.svg)]([https://www.microchip.com/](https://www.microchip.com/en-us/product/m2s005))
+[![Development Board](https://img.shields.io/badge/Board-Polaris%20SoC%20FPGA-orange.svg)](https://capsulaelectronicafpga.com/fpga-polaris/)
+[![Tools](https://img.shields.io/badge/Tools-Libero%20SoC%20v12+%20%7C%20SoftConsole-green.svg)](https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/libero-software-later-versions)
 
 ---
 
