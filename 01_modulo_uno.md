@@ -1,12 +1,8 @@
-# Evaluación Integral de Viabilidad y Plan de Ejecución del Programa IEEE CASS UMSA 2026
+# MÓDULO 1 – PLAN DE EJECUCIÓN DETALLADO
 
----
+## 1.1 Preparación PREVIA al Día 1 (actividades del instructor antes del curso)
 
-## MÓDULO 1 – PLAN DE EJECUCIÓN DETALLADO
-
-### 1.1 Preparación PREVIA al Día 1 (actividades del instructor antes del curso)
-
-#### 1.1.1 Instalación de software
+### 1.1.1 Instalación de software
 
 **Libero SoC v12 o superior:**
 1. Acceder a [microchip.com/libero](https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/libero-software-later-versions) y descargar Libero SoC v12.x para el sistema operativo correspondiente (Windows o Linux).
@@ -25,7 +21,7 @@
 2. Instalar paquetes: `pip install numpy scipy matplotlib scikit-learn`.
 3. **Verificación:** Ejecutar `python -c "import numpy; print(numpy.__version__)"`.
 
-#### 1.1.2 Verificación de hardware
+### 1.1.2 Verificación de hardware
 
 Para **cada placa Polaris** que se utilizará en el curso:
 
@@ -37,14 +33,14 @@ Para **cada placa Polaris** que se utilizará en el curso:
 4. Abrir Libero SoC → `Tools → FlashPro5` o `Configure Programming` → verificar que el programador aparece listado.
 5. Anotar los números de los puertos COM asignados (se requieren para UART). Según el manual (Sección 6), **solo los tres últimos puertos COM se encuentran habilitados para UART**; el primero es reservado para funciones internas del FlashPro5.
 
-#### 1.1.3 Preparación de materiales para estudiantes
+### 1.1.3 Preparación de materiales para estudiantes
 
 Se debe crear una carpeta `Modulo1_Material/` que contenga:
 - Una guía paso a paso impresa o en PDF con capturas de pantalla.
 - Un proyecto de Libero SoC pre-configurado (opcional pero recomendado como respaldo).
 - Un archivo de texto con los números de puerto COM de cada placa.
 
-#### 1.1.4 Verificación personal del instructor
+### 1.1.4 Verificación personal del instructor
 
 **El instructor DEBE completar la totalidad del Módulo 1 personalmente antes del curso**, en la misma placa Polaris que utilizarán los estudiantes. Esto incluye:
 - Crear el proyecto desde cero en Libero SoC.
@@ -57,9 +53,9 @@ Se debe crear una carpeta `Modulo1_Material/` que contenga:
 
 ---
 
-### 1.2 Conceptos teóricos que el instructor debe dominar y explicar
+## 1.2 Conceptos teóricos que el instructor debe dominar y explicar
 
-#### 1.2.1 Arquitectura SmartFusion2 (30 min de teoría)
+### 1.2.1 Arquitectura SmartFusion2 (30 min de teoría)
 
 Se explica con un diagrama de bloques:
 
@@ -96,13 +92,13 @@ Se explica con un diagrama de bloques:
 - **Buses AMBA:** El MSS y la Fabric se comunican mediante buses AMBA (AHB para datos de alto rendimiento, APB para periféricos de baja velocidad). Cuando el ARM requiere leer un registro del acelerador HW en la FPGA, lo realiza a través de estos buses.
 - **Justificación del SmartFusion2:** A diferencia de una FPGA externa + microcontrolador externo, aquí la totalidad se encuentra en un chip. Menor latencia, menor consumo, menor área en PCB.
 
-#### 1.2.2 Entorno de desarrollo (15 min)
+### 1.2.2 Entorno de desarrollo (15 min)
 
 - **Libero SoC:** Herramienta de diseño de hardware. Aquí se crea la lógica de la FPGA, se configura el MSS, se sintetiza y se genera el bitstream.
 - **SoftConsole:** IDE para escribir, compilar y depurar código C para el ARM Cortex-M3.
 - **FlashPro5:** Programador integrado en la placa. Programa tanto la FPGA como el ARM.
 
-#### 1.2.3 Flujo de desarrollo (15 min)
+### 1.2.3 Flujo de desarrollo (15 min)
 
 ```
 Libero SoC:
@@ -117,7 +113,7 @@ SoftConsole:
 
 ---
 
-### 1.3 Herramientas que deben estar instaladas y configuradas
+## 1.3 Herramientas que deben estar instaladas y configuradas
 
 | Herramienta | Versión | Verificación |
 |---|---|---|
@@ -128,9 +124,9 @@ SoftConsole:
 
 ---
 
-### 1.4 Implementación paso a paso
+## 1.4 Implementación paso a paso
 
-#### PASO 1: Crear el proyecto en Libero SoC (30 min)
+### PASO 1: Crear el proyecto en Libero SoC (30 min)
 
 1. **Abrir Libero SoC.**
 2. Ir a `File → New Project`.
@@ -151,7 +147,7 @@ SoftConsole:
 
 ---
 
-#### PASO 2: Configurar el MSS (Microcontroller Subsystem) (45 min)
+### PASO 2: Configurar el MSS (Microcontroller Subsystem) (45 min)
 
 Este corresponde al paso **más crítico** del Módulo 1.
 
@@ -200,7 +196,7 @@ d) **Memoria:**
 
 ---
 
-#### PASO 3: Crear el diseño HDL – Parpadeo de LEDs (45 min)
+### PASO 3: Crear el diseño HDL – Parpadeo de LEDs (45 min)
 
 Se crea un módulo simple en Verilog que haga parpadear los LEDs de la placa.
 
@@ -272,7 +268,7 @@ endmodule
 
 ---
 
-#### PASO 4: Asignación de pines (30 min)
+### PASO 4: Asignación de pines (30 min)
 
 Se utiliza la **Tabla 4** (LEDs), **Tabla 3** (Switches) y **Tabla 2** (Reloj) del manual de la Polaris:
 
@@ -317,7 +313,7 @@ set_io -port_name LED[9] -pin_name A10
 
 ---
 
-#### PASO 5: Síntesis y Place & Route (20 min)
+### PASO 5: Síntesis y Place & Route (20 min)
 
 1. En el Design Flow, hacer doble clic en **"Synthesis"**.
 2. Esperar a que finalice. Verificar que no existen errores (warnings son normales).
@@ -334,7 +330,7 @@ set_io -port_name LED[9] -pin_name A10
 
 ---
 
-#### PASO 6: Programar la FPGA (15 min)
+### PASO 6: Programar la FPGA (15 min)
 
 1. Conectar la placa Polaris al PC por USB Tipo-C.
 2. En Libero SoC, ir a `Tools → Program Device` o hacer doble clic en **"Program Device"** en el Design Flow.
@@ -353,7 +349,7 @@ set_io -port_name LED[9] -pin_name A10
 
 ---
 
-#### PASO 7: Crear proyecto en SoftConsole y comunicación UART (60 min)
+### PASO 7: Crear proyecto en SoftConsole y comunicación UART (60 min)
 
 1. **Abrir SoftConsole.**
 2. `File → New → SoftConsole Project`.
@@ -429,7 +425,7 @@ int main(void) {
 
 ---
 
-### 1.5 Verificación final del Módulo 1
+## 1.5 Verificación final del Módulo 1
 
 Al finalizar el Módulo 1, se debe contar con:
 
@@ -445,7 +441,7 @@ Al finalizar el Módulo 1, se debe contar con:
 
 ---
 
-### 1.6 Entregables del Módulo 1 (conservar para Módulos siguientes)
+## 1.6 Entregables del Módulo 1 (conservar para Módulos siguientes)
 
 | Entregable | Uso futuro |
 |---|---|
@@ -459,7 +455,7 @@ Al finalizar el Módulo 1, se debe contar con:
 
 ---
 
-### 1.7 Errores esperables y diagnóstico
+## 1.7 Errores esperables y diagnóstico
 
 | Error | Causa probable | Solución |
 |---|---|---|
@@ -476,7 +472,7 @@ Al finalizar el Módulo 1, se debe contar con:
 
 ---
 
-### 1.8 Resumen del Día 1
+## 1.8 Resumen del Día 1
 
 **Antes del Día 1:** Libero SoC, SoftConsole y drivers instalados. Placas verificadas.
 
