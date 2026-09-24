@@ -1,4 +1,4 @@
-# MÓDULO 3: ACELERACIÓN POR HARDWARE EN FPGA
+# MÓDULO 3 - ACELERACIÓN POR HARDWARE EN FPGA
 
 ## 3.1 Preparación PREVIA al Día 3 (actividades del instructor antes del módulo)
 
