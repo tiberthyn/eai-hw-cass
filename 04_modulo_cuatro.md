@@ -1,4 +1,4 @@
-# MÓDULO 4: INTERFAZ DE SENSORES (ADXL345)
+# MÓDULO 4 – INTERFAZ DE SENSORES (ADXL345)
 
 ## 4.1 Preparación PREVIA al Día 4 (actividades del instructor antes del módulo)
 
