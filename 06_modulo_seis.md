@@ -1,4 +1,4 @@
-# MÓDULO 6: INTEGRACIÓN COMPLETA DEL SISTEMA
+# MÓDULO 6 – INTEGRACIÓN COMPLETA DEL SISTEMA
 
 ## 6.1 Preparación PREVIA al Día 6 (actividades del instructor antes del módulo)
 
