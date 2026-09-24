@@ -180,7 +180,7 @@ float32_t Step_Adaptive_Kalman(AdaptiveKalmanFilter *kf, float32_t measurement) 
 
 ---
 
-## 🛠️ Requisitos de Hardware y Software
+## Requisitos de Hardware y Software
 
 ### Hardware
 * **Tarjeta de Desarrollo:** Polaris Development Board con SoC FPGA Microchip SmartFusion2 (`M2S005-FG484`).
