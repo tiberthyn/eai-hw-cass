@@ -70,19 +70,39 @@ A través de los 11 bloques multiplicadores dedicados ($18\times18$ Math Blocks)
 ### 2. Filtro de Kalman Adaptativo (ARM Cortex-M3)
 El filtro de una sola variable para la estimación de inclinación/aceleración estática modela el estado como:
 
-* **Ecuación de Predicción de Estado:**
-  $$\hat{x}_{k|k-1} = A \hat{x}_{k-1|k-1} + B u_k$$
-  $$P_{k|k-1} = A P_{k-1|k-1} A^T + Q_k$$
+#### **Ecuación de Predicción de Estado**
 
-* **Ecuación de Actualización (Corrección):**
-  $$K_k = P_{k|k-1} H^T \left( H P_{k|k-1} H^T + R_k \right)^{-1}$$
-  $$\hat{x}_{k|k} = \hat{x}_{k|k-1} + K_k \left( z_k - H \hat{x}_{k|k-1} \right)$$
-  $$P_{k|k} = (I - K_k H) P_{k|k-1}$$
+$$
+\hat{x}_{k|k-1} = A \hat{x}_{k-1|k-1} + B u_k
+$$
+
+$$
+P_{k|k-1} = A P_{k-1|k-1} A^T + Q_k
+$$
+
+
+#### **Ecuación de Actualización (Corrección)**
+
+$$
+K_k = P_{k|k-1} H^T \left( H P_{k|k-1} H^T + R_k \right)^{-1}
+$$
+
+$$
+\hat{x}_{k|k} = \hat{x}_{k|k-1} + K_k \left( z_k - H \hat{x}_{k|k-1} \right)
+$$
+
+$$
+P_{k|k} = (I - K_k H) P_{k|k-1}
+$$
+
 
 #### Adaptabilidad dinámica:
 Las matrices de covarianza de ruido se actualizan dinámicamente según la inferencia de varianza ($\sigma_k^2$) reportada por el IP Core vía APB:
 
-$$R_k = f(\sigma_k^2) = R_0 \cdot \left(1 + \gamma \cdot \sigma_k^2\right)$$
+$$
+R_k = f(\sigma_k^2) = R_0 \cdot \left(1 + \gamma \cdot \sigma_k^2\right)
+$$
+
 
 * En presencia de vibraciones mecánicas extremas, $R_k$ se incrementa dinámicamente, lo que reduce la ganancia de Kalman ($K_k \to 0$) y confía en el modelo del sistema, rechazando los picos de ruido.
 * En estado estacionario, $R_k \to R_0$, permitiendo un seguimiento rápido y preciso.
