@@ -1,4 +1,4 @@
-# MÓDULO 5: FILTRADO ADAPTATIVO DE KALMAN
+# MÓDULO 5 – FILTRADO ADAPTATIVO DE KALMAN
 
 ## 5.1 Preparación PREVIA al Día 5 (actividades del instructor antes del módulo)
 
